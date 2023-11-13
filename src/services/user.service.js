@@ -12,6 +12,11 @@ const execute = async (displayName, email, password, image) => {
   return token;
 };
 
+const getAllUsers = async () => {
+  const users = await User.findAll({ attributes: { exclude: ['password'] } });
+  return users;
+};
+
 const getUserMail = async (email) => {
   const user = await User.findOne(
     { 
@@ -23,5 +28,6 @@ const getUserMail = async (email) => {
 
 module.exports = {
   execute,
+  getAllUsers,
   getUserMail,
 };
