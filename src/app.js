@@ -33,6 +33,8 @@ app.get('/categories', authorization, categoriesController.getAllCategories);
 app.post('/categories', authorization, categoriesController.createCategory);
 
 app.get('/post', authorization, controllerPost.getAllPosts);
+
+app.delete('/user/me', authorization, userController.deleteUser);
 // É importante exportar a constante `app`,
 // para que possa ser utilizada pelo arquivo `src/server.js`
 module.exports = app;

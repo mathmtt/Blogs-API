@@ -27,6 +27,10 @@ const getUser = async (id) => {
   return user;
 };
 
+const deleteUser = async (id) => {
+  await User.destroy({ where: { id } });
+};
+
 const getUserMail = async (email) => {
   const user = await User.findOne(
     { 
@@ -41,4 +45,5 @@ module.exports = {
   getAllUsers,
   getUserMail,
   getUser,
+  deleteUser,
 };
