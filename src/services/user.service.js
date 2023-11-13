@@ -17,6 +17,16 @@ const getAllUsers = async () => {
   return users;
 };
 
+const getUser = async (id) => {
+  const user = await User.findOne(
+    { 
+      where: { id }, 
+      attributes: { exclude: ['password'] }, 
+    },
+  );
+  return user;
+};
+
 const getUserMail = async (email) => {
   const user = await User.findOne(
     { 
@@ -30,4 +40,5 @@ module.exports = {
   execute,
   getAllUsers,
   getUserMail,
+  getUser,
 };

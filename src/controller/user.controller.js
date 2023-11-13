@@ -12,6 +12,15 @@ const createUser = async (req, res) => {
   return res.status(201).json({ token });
 };
 
+const getUser = async (req, res) => {
+  const { id } = req.params;
+  const user = await serviceUser.getUser(id);
+  if (!user) {
+    return res.status(404).json({ message: 'User does not exist' });
+  }
+  return res.status(200).json(user);
+};
+
 const getAllUsers = async (_req, res) => {
   const users = await serviceUser.getAllUsers();
   return res.status(200).json(users);
@@ -20,4 +29,5 @@ const getAllUsers = async (_req, res) => {
 module.exports = {
   createUser,
   getAllUsers,
+  getUser,
 };
