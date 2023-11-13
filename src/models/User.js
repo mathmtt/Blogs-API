@@ -22,7 +22,6 @@ const UserSchema = (sequelize, DataTypes) => {
       as: 'blogposts',
     });
   };
-
   return UserTable;
 };
 
