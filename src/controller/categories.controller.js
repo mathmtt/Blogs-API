@@ -14,7 +14,17 @@ const getCategory = async (req, res) => {
   return res.status(200).json(category);
 };
 
+const createCategory = async (_req, res) => {
+  const { name } = _req.body;
+  if (!name) {
+    return res.status(400).json({ message: '"name" is required' });
+  }
+  const category = await serviceCategories.insertCategory(name);
+  return res.status(201).json(category);
+};
+
 module.exports = {
   getAllCategories,
   getCategory,
+  createCategory,
 };

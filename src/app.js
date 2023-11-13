@@ -30,6 +30,8 @@ app.get('/user/:id', authorization, userController.getUser);
 
 app.get('/categories', authorization, categoriesController.getAllCategories);
 
+app.post('/categories', authorization, categoriesController.createCategory);
+
 app.get('/post', authorization, controllerPost.getAllPosts);
 // É importante exportar a constante `app`,
 // para que possa ser utilizada pelo arquivo `src/server.js`
